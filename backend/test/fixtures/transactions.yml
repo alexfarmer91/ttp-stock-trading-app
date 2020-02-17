@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticker: MyString
+  cost_per_share: 1.5
+  quantity: 1
+  buy: false
+  belongs_to: 
+
+two:
+  ticker: MyString
+  cost_per_share: 1.5
+  quantity: 1
+  buy: false
+  belongs_to: 
