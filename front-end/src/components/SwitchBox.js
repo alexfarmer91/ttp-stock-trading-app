@@ -15,11 +15,10 @@ class SwitchBox extends React.Component {
     render() {
         return (
             <Switch>
-                <Route path="/discover" render={this.props.renderDiscoverPage} />
-                <Route path="/profile" render={this.props.renderProfilePage} />
-                <Route exact path="/cars/:id" render={this.props.renderCar} />
-                <Route exact path="/users/:id" render={this.props.renderUserPage} />
-                <Route path="/add-car/" render={this.props.renderNewCarForm} />
+                <Route exact path="/users/:id/portfolio" render={this.props.renderProfilePage} />
+                <Route exact path="/users/:id/profile" render={this.props.renderUserPage} />
+                <Route exact path="/trade/:id" render={this.props.renderNewCarForm} />
+                <Route exact path="/trade/" render={this.props.renderNewCarForm} />
                 <Route exact path="/" render={this.redirectIfLoggedIn} />
             </Switch>)
     }

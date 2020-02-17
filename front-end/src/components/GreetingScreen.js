@@ -49,7 +49,7 @@ export default class GreetingScreen extends React.Component {
     }
 
     render() {
-        return
+        return this.renderGreetingScreen()
     }
 
 }
