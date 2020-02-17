@@ -56,14 +56,14 @@ export default class SignupForm extends React.Component {
 
     render() {
         return (
-            <Form onSubmit={this.handleSubmit}>
-                <Input style={{ width: '10%' }} label="Email" onChange={this.emailChange} type="text" /><br></br>
+            <Form onSubmit={this.handleSubmit} style={{ width: '40%', 'align-content': 'center' }}>
+                <Input style={{ width: '100%', margin: 'auto', padding: '10px' }} label="Email" onChange={this.emailChange} type="text" /><br></br>
 
-                <Input style={{ width: '10%' }} label="Fist Name" onChange={this.firstNameChange} type="text" /><br></br>
+                <Input style={{ width: '100%', margin: 'auto', padding: '10px' }} label="Fist Name" onChange={this.firstNameChange} type="text" /><br></br>
 
-                <Input style={{ width: '10%' }} label="Last Name" onChange={this.lastNameChange} type="text" /><br></br>
+                <Input style={{ width: '100%', margin: 'auto', padding: '10px' }} label="Last Name" onChange={this.lastNameChange} type="text" /><br></br>
 
-                <Input style={{ width: '10%' }} label="Password" onChange={this.passwordChange} type="password" /><br></br>
+                <Input style={{ width: '100%', margin: 'auto', padding: '10px' }} label="Password" onChange={this.passwordChange} type="password" /><br></br>
 
                 <Button onClick={this.props.backToMenu} >Back</Button>
                 <input type="submit" value="Sign Up" class="ui blue button" />

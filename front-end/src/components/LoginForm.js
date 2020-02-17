@@ -46,8 +46,8 @@ export default class LoginForm extends React.Component {
     }
 
     render() {
-        return (<Container>
-            <Form onSubmit={this.handleSubmit} unstackable widths={"equal"} >
+        return (<Container textAlign={'left'}>
+            <Form onSubmit={this.handleSubmit} unstackable >
                 <Input label="Email" onChange={this.emailChange} type="text" /><br></br>
                 <Input label="Password" onChange={this.passwordChange} type="password" /><br></br>
                 <Container>

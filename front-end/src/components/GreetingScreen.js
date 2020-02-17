@@ -3,6 +3,8 @@ import LoginMenu from './LoginMenu'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 import PropTypes from 'prop-types';
+import { Alert, Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Header } from 'semantic-ui-react'
 
 export default class GreetingScreen extends React.Component {
     state = {
@@ -49,7 +51,17 @@ export default class GreetingScreen extends React.Component {
     }
 
     render() {
-        return this.renderGreetingScreen()
+        return (
+            <Row style={{ minHeight: '98vh', backgroundColor: "#f5f5f5" }}>
+                <Col xs={12} sm={12} md={6} lg={6} style={{ padding: '175px 0' }}>
+                    <Container style={{ width: '75%' }}>
+                        <Header as='h1'>Welcome to Stonks 📈</Header>
+                        {this.renderGreetingScreen()}
+                    </Container>
+                </Col>
+                <Col xs={12} sm={12} md={6} lg={6} style={{ backgroundImage: "url(/stonks_background.jpg)", backgroundSize: 'cover' }}>
+                </Col>
+            </Row>)
     }
 
 }

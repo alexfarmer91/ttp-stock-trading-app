@@ -3,8 +3,8 @@ import { Button, Container } from 'semantic-ui-react'
 
 const LoginMenu = (props) => {
     return (<Container>
-        <Button onClick={props.changeToLogin} >Login</Button>
-        <Button onClick={props.changeToSignup} >Signup</Button>
+        <Button size={'big'} onClick={props.changeToLogin} >Login</Button>
+        <Button size={'big'} onClick={props.changeToSignup} >Signup</Button>
     </Container>)
 }
 
