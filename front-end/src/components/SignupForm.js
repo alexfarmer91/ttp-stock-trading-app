@@ -50,7 +50,7 @@ export default class SignupForm extends React.Component {
                 // "Authorization": "LT1"
             }
         })
-            .then(r => r.text())
+            .then(r => r.json())
             .then(user => {
                 console.log(user)
                 this.props.setToken(user)
