@@ -22,27 +22,28 @@ export default class LoginForm extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         console.log(this.state)
-        // fetch("http://localhost:3000/login", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         email: this.state.email,
-        //         password: this.state.password
-        //     })
-        // }).then(res => res.json())
-        //     .then(data => {
-        //         if (data.errors || data.error) {
-        //             console.log(data.errors)
-        //             this.setState({
-        //                 errors: data.errors
-        //             })
-        //         } else {
-        //             console.log(data)
-        //             this.props.setToken(data)
-        //         }
-        //     })
+        fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "LT1"
+            },
+            body: JSON.stringify({
+                email: this.state.email,
+                password: this.state.password
+            })
+        }).then(res => res.json())
+            .then(data => {
+                if (data.errors || data.error) {
+                    console.log(data.errors)
+                    this.setState({
+                        errors: data.errors
+                    })
+                } else {
+                    console.log(data)
+                    this.props.setToken(data)
+                }
+            })
     }
 
     render() {

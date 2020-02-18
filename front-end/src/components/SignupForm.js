@@ -35,21 +35,24 @@ export default class SignupForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:3000/users', {
+        fetch('http://localhost:3000/users/', {
             method: "POST",
             body: JSON.stringify({
                 email: this.state.email,
                 password_digest: this.state.password,
                 first_name: this.state.firstName,
                 last_name: this.state.lastName,
+                cash: 5000
             }),
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                // "Authorization": "LT1"
             }
         })
-            .then(r => r.json())
+            .then(r => r.text())
             .then(user => {
+                console.log(user)
                 this.props.setToken(user)
             })
     }

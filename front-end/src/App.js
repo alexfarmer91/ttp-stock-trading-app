@@ -4,9 +4,32 @@ import SwitchBox from './components/SwitchBox.js'
 class App extends React.Component {
 
   state = {
-    userPortfolio: {},
     userCash: 0,
-    session: false
+    userPortfolio: [],
+    session: false,
+    loggedInUserId: null,
+    token: null
+  }
+
+  setToken = (obj) => {
+
+    const { token, user_id } = obj
+
+    localStorage.token = token
+    localStorage.user_id = user_id
+
+    this.setState({
+      token: token,
+      loggedInUserId: user_id,
+      session: true
+    })
+  }
+
+  findPortfolio = (amount, stocksArray) => {
+    this.setState({
+      userCash: amount,
+      userPortfolio: stocksArray
+    })
   }
 
   componentDidMount() {
@@ -16,7 +39,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <SwitchBox />
+      <SwitchBox setToken={this.setToken} />
     )
   }
 }

@@ -1,28 +1,12 @@
 import React from 'react';
-import DisplayCard from './components/DisplayCard.js'
-import SwitchBox from './components/SwitchBox.js'
-import ResultsContainer from './containers/ResultsContainer.js'
-
-import { Input, Button, Container } from 'semantic-ui-react'
+import ResultsContainer from '../containers/ResultsContainer.js'
+import { Row, Col } from 'react-bootstrap';
+import { Input, Button, Icon, Container } from 'semantic-ui-react'
 
 class StockSearchDashboard extends React.Component {
-    defaultStockData = {
-        "01. symbol": null,
-        "02. open": null,
-        "03. high": null,
-        "04. low": null,
-        "05. price": null,
-        "06. volume": null,
-        "07. latest trading day": null,
-        "08. previous close": null,
-        "09. change": null,
-        "10. change percent": null
-    }
+
     state = {
-        searchInput: "",
-        results: [],
-        displayStock: "",
-        displayStockData: this.defaultStockData
+        searchInput: ""
     }
 
     resultClick = (value) => {
@@ -68,8 +52,29 @@ class StockSearchDashboard extends React.Component {
     }
 
     render() {
-        return (
-            <Container>
+        return (<Row style={{ minHeight: '98vh', backgroundColor: "#f5f5f5" }}>
+            <Col xs={12} sm={12} md={6} lg={6} style={{ padding: '175px 0' }}>
+                <Container style={{ 'paddingLeft': '30vh', 'margin': 'auto' }}>
+                    <Input
+                        placeholder='Search...'
+                        onChange={this.handleTickerChange}
+                        value={this.state.searchInput}
+                        style={{ 'paddingBottom': '1vh', 'paddingTop': '1vh' }} />
+                    <br></br>
+                    <Button icon labelPosition='left' onClick={this.searchEndpoint} >
+                        <Icon name='search' />
+                        Search
+                </Button>
+                </Container>
+            </Col>
+            <Col xs={12} sm={12} md={6} lg={6} >
+                <ResultsContainer results={this.state.results} resultClick={this.resultClick} clearSearch={this.clearSearch} />
+            </Col>
+        </Row>)
+    }
+}
+
+{/* <Container>
                 <Input
                     placeholder='Search...'
                     onChange={this.handleTickerChange}
@@ -78,8 +83,6 @@ class StockSearchDashboard extends React.Component {
                 <Button icon='search' onClick={this.searchEndpoint} />
                 <ResultsContainer results={this.state.results} resultClick={this.resultClick} clearSearch={this.clearSearch} />
                 {this.state.displayStock === "" ? null : <DisplayCard symbol={this.state.displayStockData["01. symbol"]} price={this.state.displayStockData["05. price"]} change={this.state.displayStockData["10. change percent"]} volume={this.state.displayStockData["06. volume"]} />}
-            </Container>)
-    }
-}
+            </Container> */}
 
 export default StockSearchDashboard;

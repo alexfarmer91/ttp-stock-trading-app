@@ -3,7 +3,7 @@ import LoginMenu from './LoginMenu'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 import PropTypes from 'prop-types';
-import { Alert, Form, Button, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { Container, Header } from 'semantic-ui-react'
 
 export default class GreetingScreen extends React.Component {
@@ -18,9 +18,9 @@ export default class GreetingScreen extends React.Component {
     renderGreetingScreen = () => {
         switch (this.state.formType) {
             case "login":
-                return <LoginForm backToMenu={this.backToMenu} />
+                return <LoginForm setToken={this.props.setToken} backToMenu={this.backToMenu} />
             case "signup":
-                return <SignupForm backToMenu={this.backToMenu} />
+                return <SignupForm setToken={this.props.setToken} backToMenu={this.backToMenu} />
             case "menu":
                 return this.renderLoginMenu()
             default:
