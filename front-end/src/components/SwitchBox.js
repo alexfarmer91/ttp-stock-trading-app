@@ -2,6 +2,8 @@ import React from 'react';
 import GreetingScreen from './GreetingScreen'
 import StockSearchDashboard from './StockSearchDashboard.js'
 import BuySellPage from './BuySellPage.js'
+import TransactionPage from './TransactionPage.js'
+import PortfolioPage from './PortfolioPage.js'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
 class SwitchBox extends React.Component {
@@ -15,15 +17,15 @@ class SwitchBox extends React.Component {
     }
 
     renderTransactionPage = () => {
-
+        return <TransactionPage />
     }
 
     renderPortfolio = () => {
-
+        return <PortfolioPage />
     }
 
     renderBuySellPage = (props) => {
-        return <BuySellPage {...props} />
+        return <BuySellPage {...props} session={this.props.session} />
     }
 
     renderStockSearchPage = () => {

@@ -23,13 +23,14 @@ export default class TradeForm extends React.Component {
     }
 
     buyShares = () => {
-        console.log('bought')
+        fetch()
     }
 
     renderButtons = () => {
         return (<Container>
             <Button onClick={this.buyShares} color={'red'} >Buy</Button>
             <Button onClick={this.sellShares} color={'blue'} >Sell</Button>
+            {/* {this.props.portfolio.includes(this.props.symbol) ? <Button onClick={this.sellShares} color={'blue'} >Sell</Button> : null} */}
         </Container>)
     }
 

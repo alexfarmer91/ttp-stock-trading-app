@@ -51,9 +51,14 @@ export default class SignupForm extends React.Component {
             }
         })
             .then(r => r.json())
-            .then(user => {
-                console.log(user)
-                this.props.setToken(user)
+            .then(response => {
+                if (!!response.user_id) {
+                    console.log(response)
+                    this.props.setToken(response)
+                } else {
+                    console.log('error')
+                    console.log(response)
+                }
             })
     }
 

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticker: MyString
+  quantity: 1
+  user: one
+  price: 1.5
+  buy: false
+  type: 
+
+two:
+  ticker: MyString
+  quantity: 1
+  user: two
+  price: 1.5
+  buy: false
+  type: 

@@ -1,4 +1,5 @@
 import React from 'react';
+import TopNavBar from './components/TopNavBar.js'
 import SwitchBox from './components/SwitchBox.js'
 
 class App extends React.Component {
@@ -6,9 +7,24 @@ class App extends React.Component {
   state = {
     userCash: 0,
     userPortfolio: [],
+    transactionHistory: [],
     session: false,
     loggedInUserId: null,
-    token: null
+    token: null,
+    loggedInUserProfile: {}
+  }
+
+  handleLogout = () => {
+    localStorage.clear()
+    this.setState({
+      userCash: 0,
+      userPortfolio: [],
+      transactionHistory: [],
+      session: false,
+      loggedInUserId: null,
+      token: null
+    })
+    window.location.reload();
   }
 
   setToken = (obj) => {
@@ -25,21 +41,33 @@ class App extends React.Component {
     })
   }
 
-  findPortfolio = (amount, stocksArray) => {
+  findPortfolio = (amount, stocksArray, trades) => {
     this.setState({
       userCash: amount,
-      userPortfolio: stocksArray
+      userPortfolio: stocksArray,
+      transactionHistory: trades
     })
   }
 
   componentDidMount() {
-    console.log(process.env.REACT_APP_SECRET_KEY)
+    // console.log(process.env.REACT_APP_SECRET_KEY)
+    if (!!localStorage.user_id) {
+      fetch(`http://localhost:3000/users/${localStorage.user_id}`)
+        .then(r => r.json())
+        .then(user => {
+          console.log(user)
+          this.findPortfolio(user.cash, user.portfolio_items, user.trades)
+          this.setToken(localStorage)
+        })
+    }
   }
 
 
   render() {
-    return (
-      <SwitchBox setToken={this.setToken} />
+    return (<>
+      <TopNavBar handleLogout={this.handleLogout} appState={this.state} />
+      <SwitchBox userPortfolio={this.state.userPortfolio} session={this.state.session} setToken={this.setToken} />
+    </>
     )
   }
 }

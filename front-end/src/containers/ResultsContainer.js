@@ -2,7 +2,7 @@ import React from 'react'
 import { Segment, Container, Button, Header, Link } from 'semantic-ui-react'
 
 const ResultsContainer = (props) => {
-    return (<Container >
+    return (<Container style={{ 'paddingLeft': '20vh', 'paddingTop': '30vh', 'margin': 'auto' }}>
         <Header>Search Results</Header>
         <Container>
             {props.results.map(result => {

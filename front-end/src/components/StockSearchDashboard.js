@@ -6,7 +6,8 @@ import { Input, Button, Icon, Container } from 'semantic-ui-react'
 class StockSearchDashboard extends React.Component {
 
     state = {
-        searchInput: ""
+        searchInput: "",
+        results: []
     }
 
     resultClick = (value) => {
@@ -40,15 +41,6 @@ class StockSearchDashboard extends React.Component {
 
     componentDidMount() {
         console.log("loaded")
-    }
-
-    clearSearch = () => {
-        this.setState({
-            searchInput: "",
-            results: [],
-            displayStock: "",
-            displayStockData: this.defaultStockData,
-        })
     }
 
     render() {

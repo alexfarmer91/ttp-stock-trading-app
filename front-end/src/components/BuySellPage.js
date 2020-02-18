@@ -76,7 +76,7 @@ export default class BuySellPage extends React.Component {
             </Col>
             <Col xs={12} sm={12} md={6} lg={6} style={{ padding: '20vh 0' }}>
                 <Container style={{ 'padding-left': '15vh', 'padding-top': '10vh' }}>
-                    <TradeForm />
+                    {!!localStorage.user_id ? <TradeForm symbol={this.state.symbol} portfolio={this.props.userPortfolio} /> : null}
                 </Container>
             </Col>
         </Row>
