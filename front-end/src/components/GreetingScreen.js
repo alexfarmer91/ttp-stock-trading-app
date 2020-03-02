@@ -18,9 +18,9 @@ export default class GreetingScreen extends React.Component {
     renderGreetingScreen = () => {
         switch (this.state.formType) {
             case "login":
-                return <LoginForm setToken={this.props.setToken} backToMenu={this.backToMenu} />
+                return <LoginForm setUser={this.props.setUser} backToMenu={this.backToMenu} />
             case "signup":
-                return <SignupForm setToken={this.props.setToken} backToMenu={this.backToMenu} />
+                return <SignupForm setUser={this.props.setUser} backToMenu={this.backToMenu} />
             case "menu":
                 return this.renderLoginMenu()
             default:
